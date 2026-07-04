@@ -4,7 +4,7 @@ I build Rust-native developer tooling for the JavaScript and TypeScript ecosyste
 
 ## fallow
 
-[**fallow**](https://github.com/fallow-rs/fallow) is codebase intelligence for JS/TS. It turns a repository into a deterministic quality report. There is no AI inside the analyzer: every finding is deterministic, typed, and traceable back to the code that produced it, which is why CI, editors, and AI coding agents can build on it.
+[**fallow**](https://github.com/fallow-rs/fallow) is codebase intelligence for JS/TS. It turns a repository, code and the styles it ships, into a deterministic quality report. There is no AI inside the analyzer: every finding is deterministic, typed, and traceable back to the code that produced it, which is why CI, editors, and AI coding agents can build on it.
 
 In one pass it reports:
 
@@ -12,9 +12,10 @@ In one pass it reports:
 - Complexity hotspots and code duplication (clone families)
 - Circular dependencies and architecture boundary violations
 - Dead code: unused files, exports, types, and dependencies
+- Design-system drift in CSS and CSS-in-JS (via `fallow audit`)
 - Feature-flag patterns
 
-122 framework plugins, zero config, sub-second static analysis on most projects (a persistent cache makes warm runs faster still). The static layer is free and open source. An optional paid layer, **Fallow Runtime**, merges production coverage into the same report, so you can review hot paths and remove dead code with confidence.
+The static layer analyzes code and styles across the module graph, with broad framework support and a persistent cache that keeps warm runs fast. It is free and open source. An optional paid layer, **Fallow Runtime**, merges production coverage into the same report, so you can review hot paths and remove dead code with confidence.
 
 ```sh
 npx fallow audit       # changed-code audit vs your base branch
