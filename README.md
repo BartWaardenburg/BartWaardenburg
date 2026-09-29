@@ -35,4 +35,4 @@ It ships as a CLI, a GitHub Action, a GitLab template, a VS Code extension, and 
 
 ---
 
-[waardenburg.dev](https://waardenburg.dev) · [X](https://x.com/bartwaardenburg) · [LinkedIn](https://linkedin.com/in/bartwaardenburg) · [Sponsor](https://github.com/sponsors/BartWaardenburg)
+[waardenburg.dev](https://waardenburg.dev) · [X](https://x.com/bartwaardenburg) · [LinkedIn](https://linkedin.com/in/bartwaardenburg) · [Sponsor fallow](https://github.com/sponsors/fallow-rs)
