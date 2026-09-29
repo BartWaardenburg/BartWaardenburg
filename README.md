@@ -1,42 +1,38 @@
 # Bart Waardenburg
 
-I build Rust-native developer tooling for the JavaScript and TypeScript ecosystem. Mostly: trustworthy signal about codebases, for the people and the agents that work on them.
+I build open-source developer tools in Rust for the TypeScript and JavaScript ecosystem.
 
 ## fallow
 
-[**fallow**](https://github.com/fallow-rs/fallow) is codebase intelligence for JS/TS. It turns a repository, code and the styles it ships, into a deterministic quality report. There is no AI inside the analyzer: every finding is deterministic, typed, and traceable back to the code that produced it, which is why CI, editors, and AI coding agents can build on it.
+[**fallow**](https://github.com/fallow-rs/fallow) is codebase intelligence for TypeScript and JavaScript. It reads a repository as one graph and reports:
 
-In one pass it reports:
+- a health score, complexity hotspots, and refactoring targets
+- duplication across code, styles, and components
+- architecture boundary violations and circular dependencies
+- design-system drift in CSS and CSS-in-JS
+- unused files, exports, types, and dependencies
+- the risk that a pull request adds, as a CI gate
 
-- Health and quality score, plus changed-code risk against your base branch
-- Complexity hotspots and code duplication (clone families)
-- Circular dependencies and architecture boundary violations
-- Dead code: unused files, exports, types, and dependencies
-- Design-system drift in CSS and CSS-in-JS (via `fallow audit`)
-- Feature-flag patterns
-
-The static layer analyzes code and styles across the module graph, with broad framework support and a persistent cache that keeps warm runs fast. It is free and open source. An optional paid layer, **Fallow Runtime**, merges production coverage into the same report, so you can review hot paths and remove dead code with confidence.
+The analyzer is deterministic, so CI, editors, and coding agents can build on its output. It is free and MIT licensed. Fallow Cloud, an optional paid add-on, merges production runtime coverage into the same reports.
 
 ```sh
-npx fallow audit       # changed-code audit vs your base branch
-npx fallow dead-code   # unused files, exports, types, dependencies
-npx fallow health      # codebase health and quality score
+npx fallow          # health, duplication, and unused code in one run
+npx fallow audit    # the findings that your pull request introduces
+npx fallow health   # health score, hotspots, and refactoring targets
 ```
 
-Available as a CLI, VS Code extension, LSP, MCP server, GitHub Action, and GitLab CI template. Docs at [docs.fallow.tools](https://docs.fallow.tools).
+It ships as a CLI, a GitHub Action, a GitLab template, a VS Code extension, and LSP and MCP servers. Docs: [docs.fallow.tools](https://docs.fallow.tools).
 
-## The fallow ecosystem
+## Also in the fallow-rs organization
 
-Building blocks, under the [`fallow-rs`](https://github.com/fallow-rs) org:
-
-- [**srcmap**](https://github.com/fallow-rs/srcmap): source map SDK for Rust tooling. Parse, generate, remap, and compose. ECMA-426 compliant.
-- [**oxc-coverage-instrument**](https://github.com/fallow-rs/oxc-coverage-instrument): Oxc-based Istanbul coverage instrumenter.
+- [**srcmap**](https://github.com/fallow-rs/srcmap): a source map SDK for Rust tooling. It parses, generates, remaps, and composes source maps (ECMA-426).
+- [**oxc-coverage-instrument**](https://github.com/fallow-rs/oxc-coverage-instrument): Istanbul-compatible coverage instrumentation on the Oxc AST.
 
 ## Other projects
 
-- [**recraft-mcp-server**](https://github.com/BartWaardenburg/recraft-mcp-server): MCP server for AI image generation via the Recraft API.
-- [**spaceship-mcp**](https://github.com/BartWaardenburg/spaceship-mcp): MCP server for the Spaceship registrar (domains, DNS, contacts).
+- [**spaceship-mcp**](https://github.com/BartWaardenburg/spaceship-mcp): an MCP server for the Spaceship registrar (domains, DNS, contacts).
+- [**recraft-mcp-server**](https://github.com/BartWaardenburg/recraft-mcp-server): an MCP server for image generation with the Recraft API.
 
 ---
 
-[waardenburg.dev](https://waardenburg.dev) · [Twitter](https://twitter.com/bartwaardenburg) · [LinkedIn](https://linkedin.com/in/bartwaardenburg) · [Sponsor](https://github.com/sponsors/bartwaardenburg)
+[waardenburg.dev](https://waardenburg.dev) · [X](https://x.com/bartwaardenburg) · [LinkedIn](https://linkedin.com/in/bartwaardenburg) · [Sponsor](https://github.com/sponsors/BartWaardenburg)
